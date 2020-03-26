@@ -10,16 +10,16 @@ module.exports = {
     },
 
     async create(request, response) {
-        const { nome, email, whatsapp, cidade, uf } = request.body;
+        const { name, email, whatsapp, city, uf } = request.body;
         //documentação do node
         const id = crypto.randomBytes(4).toString("HEX");
         //await: qnd o node chegar aqui, vai aguardar esse código finalizar para prosseguir
         await connection("ongs").insert({
             id,
-            nome,
+            name,
             email,
             whatsapp,
-            cidade,
+            city,
             uf,
         })
         return response.json({ id });
